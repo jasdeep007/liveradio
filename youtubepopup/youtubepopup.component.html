@@ -1,0 +1,9 @@
+<div *ngIf="isbuttonclick" class="popupyoutube" (click)="close()" [class.isleft]="isleft == '1'">
+    <header title="CLOSE" style="background-color:#000;color:#fff;">
+        <span onclick="document.getElementById('YourModalBox').style.display='none'" class="close-button topright">&times;</span>
+    </header>
+    <div *ngIf="!(ishown && isbuttonclick)" class="videoloading">
+        LOADING...
+    </div>
+    <iframe *ngIf="ishown && isbuttonclick" width="100%" height="425" [src]="src" title="bestcourses.outtm.com" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0" allowfullscreen></iframe>
+</div>

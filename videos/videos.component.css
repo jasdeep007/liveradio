@@ -1,0 +1,4 @@
+input[type="radio"],
+label[for] {
+    cursor: pointer;
+}
