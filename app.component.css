@@ -2,6 +2,35 @@
 # Header
 --------------------------------------------------------------*/
 
+.headinglogo {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4vw;
+    font-family: 'Stencil Std, fantasy';
+}
+
+.ddl {
+    color: white;
+    background-color: red;
+    padding: 1vw;
+}
+
+.krew {
+    color: blue;
+    background-color: white;
+    padding: 1vw;
+    padding-left: 1vw;
+}
+
+.radio {
+    color: red;
+    background-color: blue;
+    padding: 1vw;
+    padding-left: 1vw;
+}
+
 #header {
     box-shadow: 0px 0px 25px 0 rgba(0, 0, 0, 0.08);
     z-index: 997;
@@ -49,6 +78,7 @@
 
 .nav-menu>ul {
     display: flex;
+    justify-content: center;
 }
 
 .nav-menu>ul>li {
@@ -62,7 +92,7 @@
     position: relative;
     color: rgb(160, 49, 49);
     transition: 0.3s;
-    font-size: 15px;
+    font-size: 12px;
     font-family: "Raleway", sans-serif;
     font-weight: 500;
 }
@@ -145,18 +175,6 @@
     font-family: IcoFont;
     position: absolute;
     right: 15px;
-}
-
-@media (max-width: 1366px) {
-    .nav-menu .drop-down .drop-down ul {
-        left: -90%;
-    }
-    .nav-menu .drop-down .drop-down:hover>ul {
-        left: -100%;
-    }
-    .nav-menu .drop-down .drop-down>a:after {
-        content: "\ea9d";
-    }
 }
 
 

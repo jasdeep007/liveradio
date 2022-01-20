@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import {Renderer2} from '@angular/core';
+import { Renderer2 } from '@angular/core';
+declare var $: any;
 
 @Component({
   selector: 'faq',
@@ -7,7 +8,7 @@ import {Renderer2} from '@angular/core';
   styleUrls: ['./faq.component.css']
 })
 export class FaqComponent implements OnInit, OnDestroy {
- 
+
   constructor(private renderer: Renderer2) { }
 
   renderExternalScript(src: string): HTMLScriptElement {
@@ -16,29 +17,40 @@ export class FaqComponent implements OnInit, OnDestroy {
     script.src = src;
     script.async = true;
     script.defer = true;
-    script.setAttribute('liveradio','liveradio');
+    script.setAttribute('liveradio', 'liveradio');
     const myNode = document.getElementById("script");
-    if(myNode != null) myNode.innerHTML = '';
+    if (myNode != null) myNode.innerHTML = '';
     this.renderer.appendChild(document.getElementById("script"), script);
     return script;
   }
-  
-  ngOnInit() {    
-    this.renderExternalScript('https://embed.radio.co/player/2746d82.js').onload = () => {
-      console.log('Player loaded');
-      // do something with this library
-      document.getElementsByTagName("iframe")[0].style.display = "flex";
-    }  
+
+  ngOnInit() {
+    $('header').hide();
+    $('footer').hide();
+    let h: number = 0;
+    let r = setInterval(function () {
+      h = h + 1;
+      $('.element-radiojar').hide();
+      $('.element-share-share').hide();
+      if (h == 40) {
+        clearInterval(r);
+      }
+    }, 500);
+    // this.renderExternalScript('https://embed.radio.co/player/2746d82.js').onload = () => {
+    //   console.log('Player loaded');
+    //   // do something with this library
+    //   document.getElementsByTagName("iframe")[0].style.display = "flex";
+    // }  
   }
-  ngOnDestroy(){
-    // remove iframe if any
-    document.getElementsByTagName("iframe")[0].remove();
-    document.querySelectorAll('script[liveradio=liveradio]')[0].remove();
-    document.querySelectorAll('iframe').forEach(
-      function(elem){
-        if(elem.parentNode != null)
-          elem.parentNode.removeChild(elem);
-    });
+  ngOnDestroy() {
+    // // remove iframe if any
+    // document.getElementsByTagName("iframe")[0].remove();
+    // document.querySelectorAll('script[liveradio=liveradio]')[0].remove();
+    // document.querySelectorAll('iframe').forEach(
+    //   function(elem){
+    //     if(elem.parentNode != null)
+    //       elem.parentNode.removeChild(elem);
+    // });
   }
 
 }

@@ -19,5 +19,5 @@ export class AppComponent implements OnInit {
   }
   hidenavbar() {
     this.isnavbarvisible = false;
-  }
+  }  
 }
