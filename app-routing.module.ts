@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'aboutus', component: ServiceComponent },
   { path: 'privacypolicy', component: ContactComponent },
   { path: 'liveradio', component: FaqComponent },
+  { path: 'chat', component: DsComponent },
   { path: '**', component: MainComponent },
 ];
 
